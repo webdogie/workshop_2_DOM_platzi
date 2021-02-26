@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://randomfox.ca" rel="dns-prefecth preconnect" />
     <meta
       name="description"
       content="Web site created using create-snowpack-app"
@@ -41,18 +42,16 @@
         <h3
           class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10"
         >
-          Tailwind template
+          Load a fox 🦊
         </h3>
         <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 mx-auto">
-          Use this template to build awesome websites using Snowpack and
-          Tailwind. It also includes Prettier and automatic publish to GitHub
-          pages using GitHub Actions. Learn more:
+          Click the button below to request a picture of a fox 👇
         </p>
-        <div id="imagenes"></div>
+        <div id="mount" class="self-start my-6"></div>
       </div>
     </div>
 
     <!-- Add more scripts here -->
-    <script type="module" src="%PUBLIC_URL%/_dist_/index.js"></script>
+    <script defer type="module" src="%PUBLIC_URL%/_dist_/index.js"></script>
   </body>
 </html>
