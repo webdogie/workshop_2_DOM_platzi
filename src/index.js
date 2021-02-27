@@ -1,3 +1,4 @@
+import { registerImage } from './lazy';
 //Boton de fectch
 const mountNode = document.querySelector('#mount');
 
@@ -16,10 +17,10 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function addImage(node, url) {
+async function addImage(node, url) {
   const image = document.createElement('img');
   image.width = '400';
-  image.src = `${url}${getRandomInt(1, 120)}.jpg`;
+  image.dataset.src = `${url}${getRandomInt(1, 122)}.jpg`;
   image.alt = 'cute fox';
   image.className = 'mx-auto rounded';
 
@@ -28,6 +29,7 @@ function addImage(node, url) {
   imageContainer.append(image);
 
   node.append(imageContainer);
+  registerImage(imageContainer);
   console.log('button clicked');
 }
 
@@ -35,3 +37,7 @@ function addImage(node, url) {
 reqButton.addEventListener('click', () => {
   addImage(mountNode, baseUrl);
 });
+
+//Cuadro gris
+//limpiar
+//reporte de imagenes
