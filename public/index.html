@@ -47,11 +47,38 @@
         <p class="mt-4 max-w-2xl text-xl leading-7 text-gray-500 mx-auto">
           Click the button below to request a picture of a fox 👇
         </p>
-        <div id="mount" class="self-start my-6"></div>
+        <div class="m-10">
+          <button
+            id="add"
+            class="bg-indigo-700 text-gray-50 p-4 rounded-lg focus:outline-none"
+          >
+            Load 🦊
+          </button>
+          <button
+            class="p-3 bg-indigo-50 text-gray-700 p-4 rounded-lg focus:outline-none"
+            id="clean"
+          >
+            Clean 🦊
+          </button>
+        </div>
+        <div
+          id="mount"
+          class="mx-auto flex flex-col items-center self-center my-6"
+        ></div>
       </div>
     </div>
 
     <!-- Add more scripts here -->
+    <script defer>
+      let appendedImages = 0;
+      let loadedImages = 0;
+
+      const printLog = () => {
+        console.log(`⚪ Se han agregado ${appendedImages} imágenes`);
+        console.log(`🟣 Se han cargado ${loadedImages} imágenes`);
+        console.log('---------------------------------------');
+      };
+    </script>
     <script defer type="module" src="%PUBLIC_URL%/_dist_/index.js"></script>
   </body>
 </html>

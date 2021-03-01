@@ -1,12 +1,8 @@
 import { registerImage } from './lazy';
 //Boton de fectch
 const mountNode = document.querySelector('#mount');
-
-const reqButton = document.createElement('button');
-reqButton.textContent = 'Load 🦊';
-reqButton.className =
-  'bg-indigo-700 text-gray-50 p-4 rounded-lg focus:outline-none';
-mountNode.appendChild(reqButton);
+const addButton = document.querySelector('#add');
+const cleanButton = document.querySelector('#clean');
 
 // Creacion de imagenes
 const baseUrl = 'https://randomfox.ca/images/';
@@ -18,26 +14,45 @@ function getRandomInt(min, max) {
 }
 
 async function addImage(node, url) {
-  const image = document.createElement('img');
-  image.width = '400';
-  image.dataset.src = `${url}${getRandomInt(1, 122)}.jpg`;
-  image.alt = 'cute fox';
-  image.className = 'mx-auto rounded';
+  //create image node
+  const imagen = document.createElement('img');
+  imagen.width = '400';
+  imagen.dataset.src = `${url}${getRandomInt(1, 120)}.jpg`;
+  imagen.className = 'mx-auto rounded-lg h-auto';
 
-  const imageContainer = document.createElement('div');
-  imageContainer.className = 'p-4';
-  imageContainer.append(image);
+  //create image node container
+  const imageWrapper = document.createElement('div');
+  imageWrapper.className = 'bg-gray-300 mt-10 rounded-lg ';
+  imageWrapper.style.minHeight = '240px';
+  imageWrapper.style.display = 'inline-block';
 
-  node.append(imageContainer);
-  registerImage(imageContainer);
-  console.log('button clicked');
+  //append image node container to mount node
+  imageWrapper.appendChild(imagen);
+  node.appendChild(imageWrapper);
+
+  //Image LOGGER
+  appendedImages++;
+  printLog();
+
+  //add lazy loading listener
+  registerImage(imageWrapper);
+}
+
+async function cleanImages() {
+  [...mountNode.childNodes].forEach((child) => {
+    child.remove();
+  });
 }
 
 //Event listening
-reqButton.addEventListener('click', () => {
+addButton.addEventListener('click', () => {
   addImage(mountNode, baseUrl);
 });
-
-//Cuadro gris
-//limpiar
+cleanButton.addEventListener('click', () => {
+  appendedImages = 0;
+  loadedImages = 0;
+  cleanImages();
+});
+//Cuadro gris antes de que cargen las imagenes
+//Boton que limpia todo el HTML de las imagenes
 //reporte de imagenes

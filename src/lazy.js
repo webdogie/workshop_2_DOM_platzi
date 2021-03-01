@@ -1,3 +1,5 @@
+import { doc } from 'prettier';
+
 //
 const isIntersecting = (entry) => {
   return entry.isIntersecting;
@@ -9,6 +11,9 @@ const loadImage = (entry) => {
   const url = imagen.dataset.src;
   //load img
   imagen.src = url;
+  //Image LOGGER
+  loadedImages++;
+  printLog();
 
   observer.unobserve(container);
 };
