@@ -23,7 +23,7 @@ async function addImage(node, url) {
   //create image node container
   const imageWrapper = document.createElement('div');
   imageWrapper.className = 'bg-gray-300 mt-10 rounded-lg ';
-  imageWrapper.style.minHeight = '240px';
+  imageWrapper.style.minHeight = '220px';
   imageWrapper.style.display = 'inline-block';
 
   //append image node container to mount node
